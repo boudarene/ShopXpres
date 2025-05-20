@@ -1,0 +1,816 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Barre de navigation */
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    height: 45px; /* Taille améliorée */
+}
+
+/* Livraison */
+.livraison {
+    color: white;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.livraison strong {
+    font-size: 14px;
+}
+
+/* Barre de recherche */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 40px; 
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Bouton catégorie "Tous ▼" */
+.categorie-btn {
+    background-color: #e6e6e6;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+/* Champ de recherche */
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Bouton recherche */
+.search-btn {
+    background-color: #ff9900;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.search-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Langue */
+.langue {
+    color: white;
+    margin: 0 10px;
+}
+
+/* Compte utilisateur */
+.compte,
+.commandes {
+    color: white;
+    font-size: 12px;
+    margin: 0 10px;
+}
+
+.compte strong,
+.commandes strong {
+    font-size: 14px;
+}
+
+/* Panier */
+.panier {
+    color: white;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+/* Image sous la barre de navigation */
+.banner {
+    text-align: center;
+}
+
+.banner-img {
+    width: 100%;
+    max-width: 1920px;
+}
+.langue {
+    display: flex;
+    align-items: center; /* Aligne le drapeau et le texte */
+    color: white;
+    margin: 0 10px;
+}
+
+.drapeau {
+    width: 25px; /* Taille du drapeau */
+    height: auto;
+    margin-right: 5px; /* Espacement entre l'image et le texte */
+}
+
+.livraison {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Ajuste l’espace entre l’icône et le texte */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.livraison i {
+    font-size: 16px; /* Taille de l'icône */
+    color: white; /* Couleur blanche */
+    margin-right: 3px; /* Espacement */
+}
+
+.livraison-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.livraison-text span {
+    font-size: 12px;
+    font-weight: normal;
+    color: #ddd;
+}
+
+.livraison-text strong {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.livraison {
+    margin-right: 20px; /* Ajuste cette valeur selon l'espace voulu */
+}
+/* Style pour la zone de livraison */
+.livraison {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.location-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+/* Style de la popup */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    position: relative;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.yellow-btn {
+    background: #ffcc00;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.bouton-selectionne {
+    border: 2px solid white; /* Bordure blanche */
+    border-radius: 5px; /* Arrondi les coins */
+    padding: 5px; /* Ajuste l'espace */
+}
+/* Conteneur principal pour le diaporama et les photos superposées */
+.banner-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px; /* Ajustez selon la taille de votre diaporama */
+    margin: 0 auto;
+}
+
+/* Grande photo du diaporama */
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Conteneur pour les 4 photos superposées */
+.overlay-photos {
+    position: absolute;
+    top: 70%; /* Position verticale au milieu */
+    left: 50%; /* Position horizontale au milieu */
+    transform: translate(-50%, -50%); /* Centrage précis */
+    display: flex;
+    gap: 20px; /* Espace entre les photos */
+    justify-content: center;
+    align-items: center;
+    width: 80%; /* Ajustez la largeur selon vos besoins */
+}
+
+/* Style pour chaque photo superposée */
+.overlay-photo {
+    width: 20%; /* Ajustez la taille des photos */
+    height: auto;
+    border: 2px solid white; /* Bordure pour mieux les distinguer */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.overlay-photo:hover {
+    transform: scale(1.1); /* Zoom léger au survol */
+}
+
+.overlay-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.content-section {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.75rem;
+    color: #777;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    color: #444;
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+/* Conteneur principal pour le diaporama et les photos superposées */
+.banner-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px; /* Ajustez selon la taille de votre diaporama */
+    margin: 0 auto;
+}
+
+/* Grande photo du diaporama */
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.overlay-photos {
+    position: absolute;
+    top: 80%; /* Descend un peu les photos */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 95px; /* Augmente l’espace entre les images */
+    justify-content: center;
+    align-items: center;
+    width: 90%; /* Ajuste la largeur selon tes besoins */
+}
+
+/* Augmenter la taille des images */
+.overlay-photo {
+    width: 200px; /* Augmente la taille */
+    height: auto;
+    border: 3px solid white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.overlay-photo:hover {
+    transform: scale(1.15);
+}
+.overlay-photos {
+    width: 100%; /* S'assurer que rien ne bloque la largeur */
+    max-width: 1500px; /* Ajuste cette valeur selon ton besoin */
+}
+.overlay-photos {
+    width: 100%; /* Permet d'utiliser toute la largeur */
+    max-width: 1600px; /* Augmente la limite de largeur */
+}
+.product-card {
+    background-color: white; /* Couleur verte claire */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 7px;
+    width: 400px; /* Largeur du cadre */
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
+
+.product-card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color : black ;
+}
+
+.product-image {
+    width: 100%; /* Prend toute la largeur du conteneur */
+    height: auto; /* Ajuste la hauteur automatiquement pour garder les proportions */
+    max-width: 350px; /* Augmente cette valeur si tu veux des images plus grandes */
+    max-height: 350px; /* Augmente cette valeur pour allonger les images */
+    object-fit: cover; /* Garde une bonne qualité d'image */
+}
+
+.product-card a {
+    display: block;
+    color: #0073e6; /* Bleu pour le lien */
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.product-card a:hover {
+    text-decoration: underline;
+}
+
+.overlay-photos {
+    transform: translate(-50%, -72%);
+}
+.product-image {
+    width: 100%;  /* Ajuste la largeur à 100% du conteneur */
+    height: 300px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover; /* Recadre l'image pour remplir le cadre */
+}
+
+.product-card {
+    width: 280px;  /* Même largeur pour toutes les cartes */
+    height: 370px; /* Fixe la même hauteur pour toutes les cartes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Répartit l'espace uniformément */
+    text-align: center;
+}
+.product-card h2 {
+    height: 50px; /* Fixe la hauteur du titre pour éviter les différences */
+    overflow: hidden; /* Empêche le texte trop long de déborder */
+}
+.product-card {
+    width: 40%; /* Augmente la largeur des cartes */
+    margin: 0 -6px; /* Réduit l'espace entre les cartes */
+}
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* S'assure qu'elle est au-dessus de tout */
+}
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.account-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    width: 350px; /* Augmenter la largeur */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    right: 0; /* Aligner à droite */
+}
+
+.yellow-btn {
+    background: yellow;
+    border: none;
+    padding: 12px; /* Augmenter la taille du bouton */
+    width: 100%;
+    font-size: 16px; /* Agrandir le texte */
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 14px; /* Taille du texte */
+    text-align: center;
+}
+
+.dropdown-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.dropdown-columns div {
+    width: 48%;
+}
+
+h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
+/* Style du bouton principal */
+#account-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    font-family: Arial, sans-serif;
+    color: white; /* Texte blanc comme Amazon */
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+
+/* Style du texte "Bonjour..." */
+#account-button:first-line {
+    font-weight: normal;
+    font-size: 12px; /* Plus petit que "Compte et listes" */
+}
+
+/* Style de "Compte et listes ▼" */
+#account-button strong {
+    font-weight: bold;
+    font-size: 14px; /* Taille légèrement plus grande */
+}
+
+/* Effet de survol (optionnel) */
+#account-button:hover {
+    color: #febd69; /* Orange clair au survol, comme Amazon */
+}
+/* Style pour le bouton principal */
+#account-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 5px;  /* Réduire le padding pour un look compact */
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+    line-height: 1.2;  /* Espacement entre les lignes */
+}
+
+/* Style pour la première ligne */
+#account-button .line1 {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* Style pour la deuxième ligne */
+#account-button .line2 {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Effet de survol */
+#account-button:hover {
+    color: #febd69;  /* Orange Amazon */
+}
+
+/* Pour aligner le texte à gauche et éviter le débordement */
+#account-button {
+    white-space: nowrap;
+}
+/* ===== Reset et polices de base ===== */
+body {
+    font-family: "Amazon Ember", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #111;
+}
+
+/* ===== Style du header Amazon ===== */
+.amazon-header {
+    background-color: #131921;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* ===== Bouton de connexion principal ===== */
+.account-dropdown {
+    position: relative;
+    margin-left: 15px;
+}
+
+#account-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 8px;
+    color: white;
+    text-align: left;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+#account-button .line1 {
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+}
+
+#account-button .line2 {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+}
+
+#account-button:hover {
+    color: #febd69;
+}
+
+/* ===== Menu déroulant ===== */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    width: 280px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    right: 0;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.account-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ===== Bouton jaune de connexion ===== */
+.yellow-btn {
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+}
+
+.yellow-btn:hover {
+    background: #F7CA00;
+}
+
+/* ===== Styles des liens ===== */
+.dropdown-content a {
+    display: block;
+    color: #0066c0;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.dropdown-content a:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+
+/* ===== Titres des sections ===== */
+.dropdown-content h3 {
+    font-size: 16px;
+    margin: 15px 0 5px 0;
+    color: #111;
+    font-weight: 700;
+}
+
+/* ===== Séparateur ===== */
+.dropdown-content hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 10px 0;
+}
+
+/* ===== Disposition en colonnes ===== */
+.dropdown-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.dropdown-columns > div {
+    flex: 1;
+}
+
+/* ===== Lien "Nouveau client" ===== */
+.new-customer {
+    font-size: 13px;
+    margin-top: 5px;
+    color: #111;
+}
+
+.new-customer a {
+    color: #0066c0;
+    text-decoration: none;
+}
+
+.new-customer a:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+.dropdown-content {
+    width: 350px;
+    min-height: 450px;
+    padding: 25px;
+    border-radius: 10px;
+}
+/* ===== Bouton principal ===== */
+#account-button .line1 {
+    font-size: 13px;  /* Taille exacte pour "Bonjour..." */
+    font-weight: 400;
+}
+
+#account-button .line2 {
+    font-size: 14px;  /* Taille exacte pour "Compte et listes" */
+    font-weight: 700;
+}
+
+/* Ajustements supplémentaires pour l'exactitude */
+#account-button {
+    padding: 6px 9px;  /* Padding original Amazon */
+}
+
+.dropdown-content {
+    line-height: 1.4;  /* Interligne spécifique */
+}
+
+.dropdown-columns {
+    gap: 60px;  /* Espacement entre colonnes */
+}
+
+ 
+/* Agrandissement des sections */
+.dropdown-columns > div {
+    padding: 15px;
+}
+
+/* Taille de police augmentée pour meilleure lisibilité */
+.dropdown-content h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.dropdown-content a {
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+/* Bouton de connexion plus visible */
+.yellow-btn {
+    padding: 12px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+/* ===== MENU DEROULANT COMPACT ===== */
+.dropdown-content {
+    width: 320px;  /* Largeur réduite (était 350-400px) */
+    min-height: 380px;  /* Hauteur réduite (était 450-500px) */
+    padding: 18px;  /* Espace interne réduit */
+    right: -10px;  /* Ajustement du centrage */
+}
+
+/* Espacement entre colonnes réduit */
+.dropdown-columns {
+    gap: 25px;  /* Réduit de 40px */
+    margin-top: 15px;
+}
+
+/* Padding interne réduit */
+.dropdown-columns > div {
+    padding: 10px;
+}
+
+/* Taille de police légèrement réduite */
+.dropdown-content h3 {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.dropdown-content a {
+    font-size: 13px;
+    padding: 6px 0;
+}
+
+/* Bouton plus compact */
+.yellow-btn {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+/* ===== TEXTE COMPLET SUR UNE LIGNE ===== */
+.dropdown-content {
+    width: auto;          /* Largeur adaptative */
+    min-width: 380px;     /* Largeur minimale suffisante */
+    white-space: nowrap;  /* Empêche le retour à la ligne */
+}
+
+.dropdown-columns {
+    display: flex;
+    gap: 40px;            /* Espacement entre colonnes */
+}
+
+.dropdown-columns > div {
+    flex: 1;              /* Colonnes de largeur égale */
+    min-width: 160px;     /* Largeur minimale pour contenir le texte */
+}
+
+.dropdown-content a {
+    white-space: nowrap;  /* Garde le texte sur une ligne */
+    display: block;       /* Maintient le comportement de lien bloc */
+    padding: 7px 5px;     /* Espacement interne optimal */
+    overflow: visible;    /* Affiche tout le texte */
+    text-overflow: clip;
+}

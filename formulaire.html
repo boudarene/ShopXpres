@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalisation de commande - ShopXpress</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="sty.css">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .product-summary {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .product-summary img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .form-section h3 {
+            margin-bottom: 20px;
+            color: #232f3e;
+        }
+        .payment-express-section {
+            margin-bottom: 20px;
+        }
+        .payment-express-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .payment-btn {
+            padding: 12px;
+            border: 1px solid #d1d1d1;
+            border-radius: 4px;
+            background: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .shop-pay {
+            color: #5a31f4;
+        }
+        .paypal {
+            color: #003087;
+        }
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .line {
+            flex: 1;
+            height: 1px;
+            background-color: #d1d1d1;
+        }
+        .text {
+            padding: 0 10px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+        .payment-security-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .payment-methods {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .payment-option {
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+        }
+        .payment-option:last-child {
+            border-bottom: none;
+        }
+        .payment-option-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .payment-option-header input[type="radio"] {
+            margin-right: 10px;
+        }
+        .payment-option-header label {
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .payment-option-content {
+            padding-left: 25px;
+            display: none;
+        }
+        .payment-option input[type="radio"]:checked ~ .payment-option-content {
+            display: block;
+        }
+        .card-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .card-icons img {
+            height: 24px;
+            width: auto;
+        }
+        .payment-service {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .payment-service img {
+            height: 30px;
+            width: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .form-check {
+            margin-top: 15px;
+        }
+        .form-check input {
+            margin-right: 10px;
+        }
+        .btn-marron {
+            background-color: #c58b46;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease;
+            padding: 12px 20px;
+        }
+        .btn-marron:hover {
+            background-color: #b97d39;
+        }
+        .payment-notice {
+            font-size: 12px;
+            color: #767676;
+            margin-top: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .payment-notice a {
+            color: #0066c0;
+            text-decoration: none;
+        }
+        .payment-notice a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main class="container py-4">
+        <div class="form-container">
+            <h2 class="mb-4">Finalisation de votre commande</h2>
+            
+            <div id="product-display" class="product-summary">
+            </div>
+            <div class="payment-express-section">
+                <h4>Paiement express</h4>
+                <div class="payment-options">
+                    <button type="button" class="payment-btn shop-pay">
+                        Shop Pay
+                    </button>
+                    <button type="button" class="payment-btn paypal">
+                        PayPal
+                    </button>
+                </div>
+                <div class="separator">
+                    <span class="line"></span>
+                    <span class="text">OU</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+            
+            <form id="checkout-form">
+                <div class="form-section">
+                    <h3>Contact</h3>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Adresse e-mail</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                        <label class="form-check-label" for="newsletter">
+                            Envoyez-moi des nouvelles et des offres par e-mail
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Livraison</h3>
+                    <div class="mb-3">
+                        <label for="expedition" class="form-label">Mode</label>
+                        <select class="form-select" id="expedition" required>
+                            <option value="livraison" selected>Expédier</option>
+                            <option value="retrait">Retrait en boutique</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pays" class="form-label">Pays/région</label>
+                        <select class="form-select" id="pays" required>
+                            <option value="France">France</option>
+                            <option value="Belgique">Belgique</option>
+                            <option value="Suisse">Suisse</option>
+                            <option value="Algérie">Algérie</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="prenom" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="entreprise" class="form-label">Entreprise (optionnel)</label>
+                        <input type="text" class="form-control" id="entreprise">
+                    </div>
+                    <div class="mb-3">
+                        <label for="adresse" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="adresse" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="code-postal" class="form-label">Code postal</label>
+                            <input type="text" class="form-control" id="code-postal" required>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label for="ville" class="form-label">Ville</label>
+                            <input type="text" class="form-control" id="ville" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telephone" class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" id="telephone" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Paiement</h3>
+                    <p class="payment-security-note">Toutes les transactions sont sécurisées et chiffrées.</p>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment-method" id="credit-card" checked>
+                                <label for="credit-card">Carte de crédit</label>
+                            </div>
+                            <div class="payment-option-content">
+                                <div class="card-icons">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="VISA" width="40">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AMEX" width="40">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="card-number">Numéro de carte</label>
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry-date">Date d'expiration (MM/AA)</label>
+                                        <input type="text" id="expiry-date" placeholder="MM/AA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="security-code">Code de sécurité</label>
+                                        <input type="text" id="security-code" placeholder="CVC">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="card-name">Nom sur la carte</label>
+                                    <input type="text" id="card-name">
+                                </div>
+                                
+                                <div class="form-check">
+                                    <input type="checkbox" id="same-address" checked>
+                                    <label for="same-address">Utiliser l'adresse d'expédition comme adresse de facturation</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment-method" id="paypal">
+                                <label for="paypal">PayPal</label>
+                            </div>
+                            <div class="payment-option-content">
+                                <div class="payment-service">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/paypal/paypal-original.svg" alt="PayPal" width="60">
+                                    <span>Alma - Payez en 3 fois</span>
+                                </div>
+                                <div class="card-icons">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="VISA" width="40">
+                                    <span>+5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment-method" id="bank-transfer">
+                                <label for="bank-transfer">Virement bancaire</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-marron btn-lg">Payer maintenant</button>
+                    <p class="payment-notice">Vos informations seront enregistrées dans un compte de la boutique. En poursuivant, vous acceptez les <a href="#">Conditions de service</a> de Shop et vous vous engagez à respecter la <a href="#">Politique de confidentialité</a>.</p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const produit = JSON.parse(localStorage.getItem('produitAchete'));
+            const productDisplay = document.getElementById('product-display');
+            
+            if (produit) {
+                productDisplay.innerHTML = 
+                    `<img src="${produit.image}" alt="${produit.title}">
+                    <div>
+                        <h4>${produit.title}</h4>
+                        <p class="text-success fw-bold">${produit.price}</p>
+                        <p>${produit.delivery}</p>
+                    </div>`;
+            }
+            
+            document.getElementById('paypal').addEventListener('change', function() {
+                document.getElementById('carte-details').style.display = 'none';
+            });
+            
+            document.getElementById('carte').addEventListener('change', function() {
+                document.getElementById('carte-details').style.display = 'block';
+            });
+            
+            document.getElementById('checkout-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Commande confirmée ! Merci pour votre achat.');
+                localStorage.removeItem('produitAchete');
+                window.location.href = 'web.html';
+            });
+        });
+    </script>
+
+    <script src="produit.js"></script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+/* Styles de la modale - Version corrigée */
+.login-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.login-modal .modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 25px;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.login-modal .modal-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-modal .modal-logo img {
+    height: 50px; /* Logo légèrement agrandi */
+    width: auto;
+}
+
+.login-modal .close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles spécifiques à la modale */
+.login-modal .form-group {
+    margin-bottom: 15px;
+}
+
+.login-modal .form-group label {
+    font-weight: bold;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Bouton spécifique à la modale */
+.login-modal .login-yellow-btn { /* Changement de classe */
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    border: 1px solid #a88734;
+    width: 100%;
+    padding: 10px; /* Légèrement agrandi */
+    border-radius: 8px; /* Coins plus arrondis */
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-modal .legal-text {
+    font-size: 12px;
+    margin: 15px 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.login-modal .separator {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.login-modal .business-link {
+    color: #0066c0;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Case à cocher spécifique */
+.login-modal .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+/* Bouton Continuer Jaune Foncé */
+.login-modal .amazon-continue-btn {
+    background: #F7CA00; /* Jaune plus foncé que le jaune Amazon standard */
+    border: 1px solid #E6B800; /* Bordure plus foncée */
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    color: #0F1111; /* Texte noir */
+    transition: background 0.2s ease; /* Transition fluide */
+}
+
+.login-modal .amazon-continue-btn:hover {
+    background: #E6B800; /* Jaune encore plus foncé au survol */
+    border-color: #D5A600;
+}
+/* Titre "Se connecter" en noir */
+.login-modal .modal-content h1 {
+    color: #000000 !important; /* Noir pur */
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+/* Style du champ email avec largeur réduite */
+.login-modal .compact-email-input {
+    width: 280px; /* Largeur réduite */
+    padding: 8px 10px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    color: #111;
+    background: white;
+    margin-bottom: 15px;
+    display: block; /* Pour centrer si nécessaire */
+}
+
+/* Version responsive */
+@media (max-width: 480px) {
+    .login-modal .compact-email-input {
+        width: 100%; /* Pleine largeur sur mobile */
+    }
+}
+input[type="email"] {
+    width: 100%; /* Prend toute la largeur disponible */
+    box-sizing: border-box; /* Inclut padding et bordure dans la largeur */
+}
+.besoin-aide {
+    color: #0066c0; /* Bleu Amazon */
+    text-decoration: none;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+}
+
+.besoin-aide:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour le formulaire en deux étapes */
+.step {
+    display: none;
+}
+.step.active {
+    display: block;
+}
+.change-email {
+    color: #0066c0;
+    cursor: pointer;
+    font-size: 14px;
+}
+#display-email {
+    margin: 15px 0;
+    font-weight: bold;
+}
+/* Dans votre fichier style.css */
+.modal-content {
+    width: 100%; /* Assure que la modale prend toute la largeur */
+    box-sizing: border-box; /* Inclut le padding dans le calcul de la largeur */
+    padding: 20px; /* Espacement interne */
+}
+
+.modal-content .form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box; /* Important pour inclure le padding dans la largeur */
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    height: 40px;
+    font-size: 16px;
+}
+
+/* Conteneur principal */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; /* Hauteur minimale */
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Section Business - Toujours en bas */
+.business-footer {
+    margin-top: auto; /* Pousse vers le bas */
+    width: 100%;
+    padding-top: 15px;
+}
+
+.separator {
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+.business-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.business-content a {
+    color: #0066c0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.business-content a:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+.close-modal {
+    color: black !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Styles pour la gestion d'état */
+#user-greeting, #login-prompt {
+    cursor: pointer;
+    padding: 8px 10px;
+    color: white;
+}
+
+#user-greeting:hover, #login-prompt:hover {
+    text-decoration: underline;
+}
+
+.account-dropdown {
+    position: relative;
+    min-height: 40px; /* Empêche le saut de layout */
+}
+.logout-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.logout-button:hover {
+    background-color: darkred;
+}
+/* Forcer l'affichage sur tous les navigateurs */
+#logoutBtn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Correction spécifique Firefox */
+@-moz-document url-prefix() {
+    .dropdown-content {
+        overflow: visible !important;
+    }
+    #logoutBtn {
+        position: static !important;
+    }
+}
+/* Barre secondaire style Amazon */
+/* Style de base */
+
+
+/* Barre de navigation secondaire */
+/* Reset de base */
+/* Barre secondaire style Amazon */
+
+
+.categories {
+    margin: 20px;
+}
+
+.categories a {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    width: 200px;
+}
+
+.product img {
+    max-width: 100%;
+}
+.product-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-link {
+    color: #0066c0;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+
+/* Styles pour le modal d'inscription */
+/* Styles pour les exigences de mot de passe */
+/* Style du modal */
+/* Style du modal révisé */
+/* Style du modal ShopXpress pour qu'il ait la même taille que celui d'Amazon */
+.categories {
+    margin: 20px;
+}
+
+.categories a {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    width: 200px;
+}
+
+.product img {
+    max-width: 100%;
+}
+.product-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-link {
+    color: #0066c0;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+
+/* Styles pour le modal d'inscription */
+/* Styles pour les exigences de mot de passe */
+/* Style du modal */
+/* Style du modal révisé */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    overflow-y: auto;
+}
+
+.modal-content {
+    width: 350px; /* Largeur exacte Amazon */
+    padding: 20px 26px; /* Padding exact */
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.form-group {
+    margin-bottom: 14px; /* Espacement vertical exact */
+}
+
+/* Titres */
+.modal-content h1 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.required-fields {
+    color: #767676;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+/* Champs de formulaire */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 2px;
+    color: #111;
+    padding-left: 2px;
+}
+
+/* Style exact des champs de saisie Amazon */
+/* CHAMP INPUT AMAZON EXACT */
+.form-group input {
+    width: 100%;
+    height: 33px !important; /* Forcer la hauteur */
+    padding: 2px 7px !important; /* Ajustement du padding */
+    border: 1px solid #a6a6a6 !important;
+    border-radius: 3px !important;
+    font-size: 16px !important; /* Ajuste la taille du texte */
+   
+}
+
+
+
+
+/* Effet focus exact d'Amazon */
+.form-group input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
+    outline: none;
+}
+
+/* Bouton Continuer */
+.amazon-continue-btn {
+    background: #F7CA00; /* Jaune plus foncé que le jaune Amazon standard */
+    border: 1px solid #E6B800; /* Bordure plus foncée */
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    color: #0F1111; /* Texte noir */
+    transition: background 0.2s ease
+}
+.amazon-continue-btn:hover {
+    background: linear-gradient(to bottom,#f5d78e,#eeb933);
+}
+
+/* Texte légal */
+.legal-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #767676;
+    margin-top: 18px;
+}
+
+.password-hint {
+    font-size: 12px;
+    color: #767676;
+    margin: 4px 0 14px;
+}
+
+/* Pour le texte "Tous les champs sont requis" */
+.required-text {
+    font-size: 12px;
+    color: #767676;
+    margin-bottom: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style spécifique pour le bouton "Acheter cet article" (version orange Amazon) */
+/* Style UNIFIÉ pour les deux boutons (même police/texte) */
+/* Styles UNIFIÉS pour les deux boutons */
+/* 1. Styles de base POUR LES CARTES (à ne pas modifier) */
+/* 1. Styles de base POUR LES CARTES (à ne pas modifier) */
+
+
+/* Styles UNIFIÉS pour les deux boutons */
+.buy-now {
+    background-color: #FFA41C;  /* Orange Amazon */
+    border: 1px solid #FF8F00;  /* Bordure légèrement plus foncée */
+    color: #111;                /* Texte noir */
+    padding: 8px 16px;
+    border-radius: 8px;          /* Coins arrondis */
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Police Amazon */
+    transition: background-color 0.2s; /* Animation fluide au survol */
+}
+
+.buy-now:hover {
+    background-color: #FA8900;  /* Orange plus foncé au survol */
+    border-color: #E67A00;
+}
+
+/* Style pour les DEUX boutons (même police) */
+.add-to-cart, 
+.buy-now {
+    font-family: "Amazon Ember", Arial, sans-serif; /* Police Amazon officielle */
+    font-size: 13px;
+    font-weight: 400; /* Épaisseur normale comme l'original */
+    letter-spacing: 0.2px; /* Espacement des lettres identique */
+}
+
+/* Style spécifique à "Acheter cet article" (couleur orange) */
+.buy-now {
+    background-color: #FFA41C;
+    border: 1px solid #FF8F00;
+    color: #111; /* Noir Amazon légèrement adouci */
+    margin-top: 8px;
+    /* ... (conservez le reste de vos propriétés) ... */
+} 
+
+
+ 

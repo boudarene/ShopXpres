@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopXpress</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="sty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid d-flex align-items-center">
+                <a class="navbar-brand" href="#">
+                    <img src="logo/monlogo.png" alt="ShopXpress" class="logo">
+                </a>
+                <div class="livraison d-flex align-items-center" id="open-popup">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="livraison-text">
+                        <span>Livrer à</span>
+                        <strong id="current-location">Algérie</strong>
+                    </div>
+                </div>
+                <form class="d-flex search-bar">
+                    <button class="btn categorie-btn">Tous ▼</button>
+                    <input class="form-control" type="search" placeholder="Rechercher sur ShopXpress">
+                    <button class="btn search-btn" type="submit">
+                        <img src="search-icon.png" alt="🔍" class="search-icon">
+                    </button>
+                </form>
+                <div class="langue">
+                    <img id="drapeau" class="drapeau" src="logo/Flag.svg" alt="Drapeau">
+                    <select id="select-langue" onchange="changerLangue(this.value)">
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+                <div class="account-dropdown">
+                    <div id="loginModal" class="login-modal">
+                        <div class="modal-content">
+                            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+                            
+                            
+                            <div class="modal-logo">
+                                <img src="logo/monlogo.png" alt="ShopXpress" height="50">
+                            </div>
+                            
+                            
+                            <h1>Se connecter</h1>
+                    
+                            
+                            <div id="step1" class="step active">
+                                <div class="form-group">
+                                    <label><strong>E-mail ou numéro de téléphone portable</strong></label>
+                                    <input type="text" id="email" placeholder="votre@email.com">
+                                </div>
+                                <button class="amazon-continue-btn" id="continueBtn">Continuer</button>
+                                <p class="legal-text">
+                                    En continuant, vous acceptez les <a href="#">conditions d'utilisation</a> 
+                                    et l'<a href="#">avis de confidentialité</a> de ShopXpress.
+                                </p>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="rememberLogin">
+                                    <a href="#" class="besoin-aide">Besoin d'aide?</a>
+                                </div>
+                            </div>
+                    
+                          
+                            <div id="step2" class="step">
+                                <p id="display-email">email@exemple.com <span class="change-email" onclick="goBackToStep1()">Modifier</span></p>
+                                <div class="form-group">
+                                    <label><strong>Mot de passe</strong></label>
+                                    <input type="password" id="password">
+                                </div>
+                                <p><a href="#" class="change-email">Mot de passe oublié?</a></p>
+                                <button class="amazon-continue-btn" id="loginBtn">Se connecter</button>
+                            </div>
+                    
+                            <div class="separator"></div>
+                            <div class="business-section">
+                                <h3>Vous achetez pour le travail ?</h3>
+                                <a href="#" class="business-link">Achetez sur ShopXpress Business</a>
+                            </div>
+                        </div>
+                            
+                    </div>
+                    <button id="account-button">Bonjour, connectez-vous<br><strong>Compte et listes ▼</strong></button>
+                                  
+                    <div class="dropdown-content">
+                                                                     
+                        <div class="dropdown-columns">
+                            <div>
+                                <h3>Vos listes</h3>
+                                <a href="#">Créer une liste</a>
+                                <a href="#">Trouver une liste ou un registre</a>
+                            </div>
+                            <div>
+                                <h3>Votre compte</h3>
+                                <a href="#">Compte</a>
+                                <a href="#">Ordres</a>
+                                <a href="#">Recommandations</a>
+                                <a href="#">Historique de navigation</a>
+                                <a href="#">Liste de surveillance</a>
+                                <a href="#">Achats et locations de vidéos</a>
+                                <a href="#">Kindle Unlimited</a>
+                                <a href="#">Contenu et appareils</a>
+                                <a href="#">Abonnements</a>
+                                <a href="#">Bibliothèque musicale</a>
+                                <a href="#" id="logoutBtn">Déconnexion</a>                               
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="commandes">
+                    <span>Retours</span>
+                    <strong>et commandes</strong>
+                </div>
+                <div class="panier">
+                    🛒 <span class="badge bg-warning">0</span> Panier
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div class="banner-container">
+            <div class="banner">
+                <img id="banner-img" src="https://m.media-amazon.com/images/I/81ljXMW0qIL._SX3000_.jpg" alt="Promo ShopXpress" class="banner-img">
+            </div>
+            <div class="overlay-photos">
+                <div class="product-card">
+                    <h2>Cuisine pratique et stylée </h2>
+                    <img src="cuisine.jpg" alt="Fournitures de bureau" class="product-image">
+                    <a href="produit.html?category=cuisine">Découvrez notre sélection cuisine</a>
+               
+                </div>
+                <div class="product-card">
+                    <h2>Lancer-vous dans le jeu</h2>
+                    <img src="photo2.jpg" alt="Fournitures de bureau" class="product-image">
+                    <a href="produit.html?category=immersive">Équipez-vous pour une expérience immersive</a>
+                </div>
+                <div class="product-card">
+                    <h2>Nouvelle année, nouvelles fournitures</h2>
+                    <img src="islam.jpg" alt="Fournitures de bureau" class="product-image">
+                    <a href="produit.html?category=fournitures">Préparez votre rentrée avec nos fournitures</a>
+                   
+                </div>
+                <div class="product-card">
+                    <h2>Principales catégories de vêtements</h2>
+                    <img src="BVB.jpg" alt="Fournitures de bureau" class="product-image">
+                    <a href="produit.html?category=vetement">Exprimez-vous avec notre sélection de vêtements !</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="audio-controls">
+            <button id="play-music">▶️</button>
+            <button id="pause-music">⏸️</button>
+        </div>
+        <audio id="background-music" loop>
+            <source src="audio/newfrontier.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'élément audio.
+        </audio>
+        <audio id="notification-sound">
+            <source src="audio/newfrontier.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'élément audio.
+        </audio>
+        <audio id="welcome-sound">
+            <source src="audio/newfrontier.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'élément audio.
+        </audio>
+    </main>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const userName = localStorage.getItem('userName');
+            const userEmail = localStorage.getItem('userEmail');
+            
+            if(userName) {
+                
+                document.getElementById('account-button').innerHTML = `
+                    Bonjour ${userName}<br>
+                    <strong>Compte et listes ▼</strong>
+                `;
+                
+                document.getElementById('welcome-text').textContent = 
+                    `Bonjour ${userName} ! Voici votre espace personnel.`;
+            } else {
+                
+                window.location.href = 'web.html';
+            }
+            
+          
+            document.getElementById('logoutBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('userName');
+                localStorage.removeItem('userEmail');
+                window.location.href = 'web.html';
+            });
+        });
+    </script>
+    
+    
+    <script src="produit.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="isco.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
